@@ -1,0 +1,55 @@
+﻿@model SecurityViewModel
+
+@{
+    Layout = "_AccountLayout";
+    ViewData["Title"] = "Security";
+}
+
+<section class="Security">
+    <div class="container">
+        <form>
+
+            <h1>Security</h1>
+            <div>
+                @ViewData["StatusMessage"]
+            </div>
+            <div class="form-content">
+                <h3>Password</h3>
+                <div class="input-password input-group">
+                    <label class="input-label" asp-for="Password"></label>
+                    <input asp-for="Password" />
+                    <span asp-validation-for="Password"></span>
+                </div>
+
+
+                <div class="input-password input-group">
+                    <label class="input-label" asp-for="newPassword"></label>
+                    <input asp-for="newPassword" />
+                    <span asp-validation-for="newPassword"></span>
+                </div>
+
+                <div class="input-password input-group">
+                    <label class="input-label" asp-for="ConfirmPassword"></label>
+                    <input asp-for="ConfirmPassword" />
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+                <button class="btn btn-gray">Cancel</button>
+                <button class="btn btn-theme">Change password</button>
+
+                <h3>Delete account</h3>
+                <p>When you delete your account, your public profile will be deactivated immediately. If you change your mind before the 14 days are up, sign in with your email and password, and we’ll send you a link to reactivate your account.</p>
+                <div class="checkbox-group">
+                    <div class="input-group">
+                        <input asp-for="deleteAccount" />
+                        <label asp-for="deleteAccount">
+                            Yes, I want to delete my account.
+                        </label>
+                    </div>
+                </div>
+
+                <button class="btn btn-gray" type="submit">delete</button>
+
+            </div>
+        </form>
+    </div>
+</section>

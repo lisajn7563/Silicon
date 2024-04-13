@@ -1,0 +1,48 @@
+﻿.worktools {
+    padding: 50px 0px;
+
+    .container {
+        display: none;
+
+        @include md {
+            display: grid;
+        }
+
+        @include xl {
+            display: grid;
+        }
+
+        .section-title {
+            text-align: center;
+
+
+            h1 {
+                font-size: 34px;
+            }
+
+            p {
+
+                @include xl {
+                    padding: 0 200px 0;
+                }
+            }
+        }
+
+        .work-tools {
+            margin-top: 40px;
+            display: grid;
+
+            @include md {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @include xl {
+                grid-template-columns: 1fr 1fr 1fr 1fr;
+            }
+
+            .work-tools-box {
+                padding: 30px;
+            }
+        }
+    }
+}

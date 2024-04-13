@@ -1,0 +1,145 @@
+﻿
+.account {
+    height: 100%;
+    padding: 2rem 0;
+
+    h1 {
+        margin: 0.5em;
+        font-size: 42px;
+    }
+
+    .title-basic {
+        margin: 1em;
+        color: var(--color-theme);
+    }
+
+    .container {
+        height: 100%;
+        display: grid;
+        grid-template-columns: 390px;
+
+
+        @include md {
+            grid-template-columns: 200px 1fr;
+            grid-template-rows: auto;
+            gap: 0 10px;
+        }
+
+
+        @include xl {
+            grid-template-columns: 350px 1fr;
+            grid-template-rows: auto;
+            gap: 0 30px;
+        }
+
+        form {
+            @include md {
+                &.form-details {
+                    grid-column: span 2; /* Tar upp två kolumner på bredare skärmar */
+                }
+
+                &.form-address {
+                    grid-column: span 2; /* Tar upp två kolumner på bredare skärmar */
+                }
+            }
+
+            .form-details {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 1fr;
+                grid-template-areas: "firstname" "lastname" "email" "phone" "bio";
+
+
+                @include lg {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "firstname lastname" "email phone" "bio bio";
+                }
+
+                .input-firstname {
+                    grid-area: firstname;
+                }
+
+                .input-lastname {
+                    grid-area: lastname;
+                }
+
+                .input-email {
+                    grid-area: email;
+                }
+
+                .input-phone {
+                    grid-area: phone;
+                }
+
+                .input-bio {
+                    grid-area: bio;
+                }
+            }
+        }
+
+        .title-address {
+            color: var(--color-theme);
+        }
+
+        form {
+
+            .form-address {
+                display: grid;
+                gap: 20px;
+                grid-template-columns: 1fr;
+                grid-template-areas: "addressline-1" "addressline-2" "code" "city";
+
+
+                @include lg {
+                    grid-template-columns: 1fr 1fr;
+                    grid-template-areas: "addressline-1 addressline-1" "addressline-2 addressline-2" "code city";
+                }
+
+                .input-addressline_1 {
+                    grid-area: addressline-1;
+                }
+
+                .input-addressline_2 {
+                    grid-area: addressline-2;
+                }
+
+                .input-postalcode {
+                    grid-area: code;
+                }
+
+                .input-city {
+                    grid-area: city;
+                }
+            }
+
+            .btn {
+                margin: 1em 0;
+            }
+        }
+
+
+        aside {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-right: 2rem;
+            border-right: 1px solid var(--color-gray-400);
+
+            .account-nav {
+                margin-top: 2rem;
+                position:relative;
+
+                .btn {
+                    margin-bottom: 10px;
+                    font-size: 16px;
+                    max-width: 360px;
+                    display: flex;
+                    justify-content: left;
+
+                    i {
+                       margin: 5px;
+                    }
+                }
+            }
+        }
+    }
+}

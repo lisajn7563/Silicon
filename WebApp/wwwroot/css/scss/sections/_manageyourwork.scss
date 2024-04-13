@@ -1,0 +1,74 @@
+﻿.manage-your-work {
+    .container {
+        display: grid;
+        grid-template-columns: 1fr;
+
+        @include md {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .dashboard-image {
+            margin-top: 50px;
+            width: 400px;
+            z-index: -20;
+
+            @include md {
+                margin-top: 100px;
+            }
+
+            @include lg {
+                width: 450px;
+            }
+
+            @include xl {
+                width: 500px;
+            }
+
+            @include xxl {
+                width: 650px;
+            }
+        }
+
+        .content {
+
+            @include xl {
+                margin: 80px 100px;
+            }
+
+            .section-title {
+                h1 {
+                    margin: 50px;
+                    font-size: 30px;
+
+                    @include xl {
+                        font-size: 36px;
+                    }
+                }
+            }
+
+            .section-list {
+                padding-bottom: 30px;
+                font-size: 14px;
+
+                @include xl {
+                    padding-bottom: 30px;
+                    font-size: 16px;
+                }
+
+                .fa-regular {
+                    color: var(--color-theme);
+                    padding: 8px;
+                }
+            }
+
+            .learn-more {
+                margin: 0 50px 50px;
+                width: 195px;
+
+                .fa-sharp {
+                    padding: 0 5px;
+                }
+            }
+        }
+    }
+}

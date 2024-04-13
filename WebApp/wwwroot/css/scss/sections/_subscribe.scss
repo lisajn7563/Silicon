@@ -1,0 +1,97 @@
+﻿.subscribe {
+    background-color: var(--color-gray-100);
+    padding: 4rem 0;
+
+    .container {
+        width: 88%;
+
+        .input-group {
+            position: relative;
+            margin: 20px 0;
+
+            i {
+                position: absolute;
+                left: 20px;
+                top: 13px;
+                font-size: 1.3em;
+            }
+        }
+
+        .btn {
+            margin: 1em 0;
+
+            @include md {
+                margin: 0;
+            }
+        }
+
+        @include md {
+            width: 60%;
+
+            .title {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+
+                h2 {
+                    font-size: 34px;
+                }
+            }
+
+            form {
+
+                .alternative {
+                    width: 100%;
+
+
+                    @include md {
+                        margin: 2rem 0;
+                        display: grid;
+                        grid-template-columns: 1fr 2fr;
+
+
+                        h4 {
+                            font-size: 24px;
+                            width: 50%;
+                        }
+
+                        .options {
+                            align-content: center;
+                            display: grid;
+                            grid-template-columns: 1fr 1fr 1fr;
+
+                            input {
+                                width: 18px;
+                            }
+                        }
+                    }
+                }
+
+                .email {
+                    display: grid;
+                    align-items: start;
+                    grid-template-columns: 1fr auto;
+                    gap: 1.5rem;
+
+                    .input-group {
+                        position: relative;
+                        margin: 0;
+
+                        i {
+                            position: absolute;
+                            left: 20px;
+                            top: 13px;
+                            font-size: 1.3em;
+                        }
+
+                        input {
+                            padding-left: 55px;
+                            background-color: var(--color-gray-100);
+                            margin: 0 0 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

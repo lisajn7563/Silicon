@@ -1,0 +1,66 @@
+﻿@{
+    var theme = Context.Request.Cookies["theme"] ?? "light";
+    var isDarkMode = (theme == "dark") ? true : false;
+}
+@{
+    var user = await UserManger.GetUserAsync(User);
+}
+
+<header>
+    <div class="container">
+        <a class="logo" asp-action="Home" asp-controller="Default"><img src="~/images/logos/silicon-logo.svg" alt="Silicon" /></a>
+        
+        <nav>
+            <a asp-action="Home" asp-controller="Default" class="nav-link">Overview</a>
+            <a asp-action="features" asp-controller="Default" class="nav-link">Features</a>
+            @if (SignInManager.IsSignedIn(User))
+            {
+                <a asp-action="Courses" asp-controller="Courses" class="nav-link">Courses</a>
+            }
+            <a asp-action="Contact" asp-controller="Contact" class="nav-link">Contact</a>
+
+            @if (SignInManager.IsSignedIn(User) && user != null)
+            {
+            }
+            else
+            {
+                <a asp-action="SignIn" asp-controller="Auth" class="nav-link">Sign in</a>
+                <a asp-action="SignUp" asp-controller="Auth" class="nav-link">Sign up</a>
+                
+            }
+        </nav>
+
+
+        <div id="theme-switch" class="btn-switch">
+            <label>Light</label>
+            <label class="switch" for="switch-mode">
+                <input type="checkbox" id="switch-mode" checked="@isDarkMode" />
+                <span class="slider round"></span>
+            </label>
+            <label>Dark</label>
+        </div>
+        
+        @if (SignInManager.IsSignedIn(User) && user != null)
+        {
+
+            <div class="profile">
+                <div class="image">
+                    <a asp-action="Details" asp-controller="Account">
+                        <img src="@Configuration["FilePath:ProfileImagePath"]/@user.ProfileImage" />
+                    </a>
+                </div>
+            </div>
+        }
+        else
+        {
+            <div class="account-buttons">
+                <a class="btn-theme-secondary btn-small" asp-action="SignIn" asp-controller="Auth"><i class="fa-regular fa-arrow-right-to-bracket"></i>Sign in</a>
+                <a class="btn-theme btn-small" asp-action="SignUp" asp-controller="Auth"><i class="fa-regular fa-user"></i>Sign up</a>
+            </div>
+        }
+        
+        <button class="btn-mobile"><i class="fa-regular fa-bars"></i></button>
+    </div>
+    
+</header>
+

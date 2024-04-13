@@ -1,0 +1,56 @@
+﻿﻿@{
+    var theme = Context.Request.Cookies["theme"] ?? "light";
+    var isDarkMode = (theme == "dark") ? true : false;
+}
+
+<!DOCTYPE html>
+<html lang="en" class="@theme">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+
+        @(!string.IsNullOrEmpty(ViewData["Title"]?.ToString())
+            ? @ViewData["Title"] + " | Silicon"
+            : "Silicon")
+
+    </title>
+
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+</head>
+<body>
+
+    <div class="wrapper">
+        <partial name="~/Views/Partials/Sections/_Header.cshtml" />
+
+        <section class="account">
+            <div class="container">
+                <aside>
+                    <partial name="~/Views/Account/_AccountProfile.cshtml" />
+                    <nav class="account-nav">
+                        <a class="btn btn-nav active" asp-action="Details" asp-controller="Account"><i class="fa-regular fa-cog"></i>Account Details</a>
+                        <a class="btn btn-nav" asp-action="Security" asp-controller="Security"><i class="fa-regular fa-regular fa-lock"></i>Security</a>
+                        <a class="btn btn-nav" asp-action="SaveCourses" asp-controller="Courses"><i class="fa-regular fa-regular fa-bookmark"></i>Save Courses</a>
+                        <a class="btn btn-nav" asp-action="SignOut" asp-controller="Auth"><i class="fa-regular fa-arrow-right-from-bracket"></i>Sign Out</a>
+                    
+
+                    </nav>
+                </aside>
+
+                <main>
+                    @RenderBody()
+                </main>
+            </div>
+
+        </section>
+
+        <partial name="~/Views/Partials/Sections/_Footer.cshtml" />
+    </div>
+
+
+
+    <script src="https://kit.fontawesome.com/a041cc045c.js" asp-append-version="true" crossorigin="Anonymous"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    <partial name="_CookieConsent" />
+</body>
+</html>

@@ -1,0 +1,94 @@
+﻿*,*::before,*::after {
+    box-sizing: border-box;
+   
+}
+
+body {
+    @include font-standard;
+    color: var(--color-gray-900);
+    background: var(--color-white);
+}
+
+a {
+    @include font-standard;
+    font-weight: 600;
+    color: #6366F1;
+    font-size: 1em;
+    display: inline-block;
+
+    &:active,
+    &:visited,
+    &:focus,
+    &:hover {
+        color: var(--color-theme);
+    }
+
+    &:hover {
+        color: var(--color-theme);
+    }
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+
+.wrapper {
+    height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+}
+
+.nav-link {
+    @include font-semibold;
+    color: var(--color-gray-900) !important;
+    text-decoration: none;
+    font-size: 1em;
+    display: inline-block;
+
+    &:active,
+    &.active,
+    &:hover {
+        color: #6366F1 !important;
+        text-decoration: underline;
+    }
+}
+
+
+.container {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+
+    @include sm {
+        max-width: 540px;
+    }
+
+    @include md {
+        max-width: 720px;
+    }
+
+    @include lg {
+        max-width: 960px;
+    }
+
+    @include xl {
+        max-width: 1140px;
+    }
+
+    @include xxl {
+        max-width: 1320px;
+    }
+
+    &.container-fixed-500 {
+        width: 500px;
+    }
+
+    &.container-fixed-700 {
+        width: 700px;
+    }
+}
+
